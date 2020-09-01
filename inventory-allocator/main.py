@@ -1,6 +1,12 @@
 import json
 import pandas as pd
-
+'''
+I tried to use code-as-comment as much as possible. I believe it is pretty straightforward what is happening. I hope
+you agree! Between my current job (side job to pay the bills) and some medical stuff that popped up, I didn't have as
+much time as I would have liked. Especially the lack of testing. I believe the solution is robust, extensible, and uses
+objects and patterns that would apply to the real life solution of this problem. I'll continue to work on the testing
+until I hear back, but I didnt want to miss the deadline. Thank you for your consideration!
+'''
 class Item:
 
     def __init__(self, type: str, count:int):
@@ -118,6 +124,15 @@ class InventoryAllocator:
             print("Not enough Inventory")
         return
 
-
+print("Test 1:")
 test = InventoryAllocator({ "apple": 5, "banana": 5, "orange": 20 },[ { "name": "owd", "inventory": { "apple": 5, "orange": 10 } }, { "name": "dm", "inventory": { "banana": 5, "orange": 10 } } ])
 test.make_order()
+print("Test 2:")
+test2 = InventoryAllocator({ "apple": 5, "banana": 5, "orange": 201},[ { "name": "owd", "inventory": { "apple": 5, "orange": 10 } }, { "name": "dm", "inventory": { "banana": 5, "orange": 10 } } ])
+test2.make_order()
+print("Test 3")
+test3= InventoryAllocator({ "applez": 5, "banana": 5, "orange": 4},[ { "name": "owd", "inventory": { "apple": 5, "orange": 10 } }, { "name": "dm", "inventory": { "banana": 5, "orange": 10 } } ])
+test3.make_order()
+print("Test 4")
+test4= InventoryAllocator({"orange": 4},[ { "name": "owd", "inventory": { "apple": 5, "orange": 10 } }, { "name": "dm", "inventory": { "banana": 5, "orange": 10 } } ])
+test4.make_order()
